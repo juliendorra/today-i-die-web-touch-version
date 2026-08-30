@@ -1,9 +1,9 @@
-const CACHE = "today-i-die-v9";
+const CACHE = "today-i-die-v10";
 const CORE = [
   "/",
   "/index.html",
-  "/assets/app.js",
-  "/assets/app.css",
+  "/src/main.js",
+  "/src/style.css",
   "/manifest.webmanifest",
   "/icon.svg",
   "/icon-192.png",

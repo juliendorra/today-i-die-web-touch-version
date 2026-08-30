@@ -1,5 +1,3 @@
-import "./style.css";
-
 const GAME_WIDTH = 390;
 const GAME_HEIGHT = 570;
 const SUPPORTED_LANGUAGES = new Set(["en", "sp", "pt", "de", "it", "cz", "fr"]);
@@ -214,6 +212,6 @@ languageButtons.forEach((button) => {
   button.classList.toggle("preferred", isPreferred);
 });
 
-if ("serviceWorker" in navigator && import.meta.env.PROD) {
+if ("serviceWorker" in navigator && window.isSecureContext) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
 }

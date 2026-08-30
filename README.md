@@ -5,20 +5,14 @@ A mobile-first, installable web version of Daniel Benmergui's **Today I Die**. T
 ## Run locally
 
 ```sh
-npm install
-npm run dev
+python3 -m http.server
 ```
 
-Open the local URL on a desktop browser or another device on the same network. Touch the screen once to unlock audio and request fullscreen.
+Open the local URL on a desktop browser or another device on the same network. Any static HTTP server works; there are no dependencies, framework, or build step. Touch the screen once to unlock audio and request fullscreen.
 
-## Production build
+## Deploy
 
-```sh
-npm run build
-npm run preview
-```
-
-Deploy the contents of `dist/` to any static HTTPS host. HTTPS is required for service workers and installable PWA behavior outside localhost.
+Deploy the repository contents directly to any static HTTPS host. HTTPS is required for service workers and installable PWA behavior outside localhost.
 
 On iPhone or iPad, use Safari's **Share → Add to Home Screen** for the closest match to the original app: portrait orientation, no browser toolbar, and offline play.
 
