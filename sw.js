@@ -1,4 +1,4 @@
-const CACHE = "today-i-die-v11";
+const CACHE = "today-i-die-v12";
 const CORE = [
   "/",
   "/index.html",

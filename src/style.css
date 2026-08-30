@@ -169,6 +169,18 @@ button {
   cursor: default;
 }
 
+.language-credits {
+  margin-top: 1.1rem;
+  color: rgb(223 236 226 / 0.42);
+  font-size: 0.65rem;
+  line-height: 1.55;
+  letter-spacing: 0.025em;
+}
+
+.language-credits p {
+  margin: 0;
+}
+
 #start {
   position: absolute;
   z-index: 10;
