@@ -65,8 +65,13 @@ async function createGame(languageCode) {
   player = ruffle.createPlayer();
   player.id = "today";
   player.setAttribute("aria-label", "Today I Die");
+  player.setAttribute("draggable", "false");
   player.style.width = "100%";
   player.style.height = "100%";
+  player.style.webkitUserSelect = "none";
+  player.style.userSelect = "none";
+  player.style.webkitTouchCallout = "none";
+  player.style.touchAction = "none";
   gameContainer.append(player);
 
   await player.ruffle().load({
@@ -181,6 +186,16 @@ function updateGameScale() {
   document.documentElement.style.setProperty("--game-scale", String(scale));
 }
 
+function clearBrowserSelection() {
+  const selection = window.getSelection?.();
+  if (selection?.rangeCount) selection.removeAllRanges();
+}
+
+function blockBrowserSelection(event) {
+  event.preventDefault();
+  clearBrowserSelection();
+}
+
 startButton.addEventListener("click", startGame);
 languageDialog.addEventListener("click", chooseLanguage);
 app.addEventListener(
@@ -203,6 +218,11 @@ dismissHintButton.addEventListener("click", () => {
 
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 document.addEventListener("gesturestart", (event) => event.preventDefault());
+document.addEventListener("selectstart", blockBrowserSelection, { capture: true });
+document.addEventListener("dragstart", blockBrowserSelection, { capture: true });
+document.addEventListener("selectionchange", clearBrowserSelection);
+app.addEventListener("pointerdown", clearBrowserSelection, { capture: true });
+app.addEventListener("pointerup", clearBrowserSelection, { capture: true });
 
 document.documentElement.lang = HTML_LANGUAGES[language];
 updateGameScale();

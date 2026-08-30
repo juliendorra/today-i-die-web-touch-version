@@ -16,6 +16,17 @@
 
 html,
 body,
+#app,
+#app * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+}
+
+html,
+body,
 #app {
   width: 100%;
   height: 100%;
@@ -28,9 +39,6 @@ body,
 body {
   position: fixed;
   inset: 0;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
 }
 
 button {
